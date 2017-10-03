@@ -1,5 +1,6 @@
 [mysqlId]
-server_id=2
+server-id=2
+bind-address=0.0.0.0
 log_bin=/var/log/mysql/mysql-bin.log
 relay_log=/var/log/mysql/mysql-relay-bin.log
 binlog_do_db=/mydb
