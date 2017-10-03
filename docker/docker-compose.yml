@@ -1,0 +1,32 @@
+version: "2"
+
+services:
+  master:
+    container_name: master
+    image: mysql:5.6.37
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=mydb
+    volumes:
+      - conf/master.cnf:/etc/mysql/my.cnf
+    networks:
+      - db-net
+
+  slave:
+    container_name: slave
+    image: mysql:5.6.37
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=mydb
+    volumes:
+      - conf/slave.cnf:/etc/mysql/my.cnf
+    networks:
+      - db-net
+
+networks:
+  db-net:
+    driver: bridge
