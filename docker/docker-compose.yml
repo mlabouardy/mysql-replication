@@ -10,7 +10,7 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=mydb
     volumes:
-      - conf/master.cnf:/etc/mysql/my.cnf
+      - ./conf/master.cnf:/etc/mysql/my.cnf
     networks:
       - db-net
 
@@ -18,12 +18,12 @@ services:
     container_name: slave
     image: mysql:5.6.37
     ports:
-      - 3306:3306
+      - 3307:3306
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=mydb
     volumes:
-      - conf/slave.cnf:/etc/mysql/my.cnf
+      - ./conf/slave.cnf:/etc/mysql/my.cnf
     networks:
       - db-net
 
