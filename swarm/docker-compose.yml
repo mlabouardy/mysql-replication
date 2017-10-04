@@ -1,0 +1,11 @@
+version: "3.3"
+
+services:
+  master:
+    image: mysql: 5.6
+    ports:
+      - 3306:3306
+    deploy:
+      placement:
+        constraints:
+	  - node.role == manager
